@@ -1,4 +1,6 @@
 // Verifica se há argumentos de linha de comando para executar a função "createFolder"
+using Microsoft.EntityFrameworkCore;
+
 if (args.Length > 0 && args[0].Equals("createFolder", StringComparison.OrdinalIgnoreCase)) {
     if (args.Length > 1) {
         CreateArquives.createFolder(args[1]);
@@ -24,6 +26,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<Db>(options =>{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
