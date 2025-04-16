@@ -1,8 +1,9 @@
-// Verifica se há argumentos de linha de comando para executar a função "createFolder"
+using Microsoft.EntityFrameworkCore;
+
 if (args.Length > 0 && args[0].Equals("createFolder", StringComparison.OrdinalIgnoreCase)) {
     if (args.Length > 1) {
         ConfigArquives.createFolder(args[1]);
-        return; // Encerra a aplicação após a execução da função.
+        return;
     }
     else {
         Console.WriteLine("Informe o nome da pasta.");
@@ -20,7 +21,12 @@ else if (args.Length > 0 && args[0].Equals("create", StringComparison.OrdinalIgn
     }
 }
 
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<Db>(options => {
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
