@@ -1,7 +1,7 @@
 // Verifica se há argumentos de linha de comando para executar a função "createFolder"
 if (args.Length > 0 && args[0].Equals("createFolder", StringComparison.OrdinalIgnoreCase)) {
     if (args.Length > 1) {
-        CreateArquives.createFolder(args[1]);
+        ConfigArquives.createFolder(args[1]);
         return; // Encerra a aplicação após a execução da função.
     }
     else {
@@ -11,7 +11,7 @@ if (args.Length > 0 && args[0].Equals("createFolder", StringComparison.OrdinalIg
 }
 else if (args.Length > 0 && args[0].Equals("create", StringComparison.OrdinalIgnoreCase)) {
     if (args.Length > 1) {
-        CreateArquives.create(args[1]);
+        ConfigArquives.create(args[1]);
         return;
     }
     else {
