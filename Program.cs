@@ -27,6 +27,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<Db>(options => {
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddCustomAuthentication(builder.Configuration);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
