@@ -10,6 +10,14 @@ public class UserService : IUserService {
     }
 
     public async Task<UserModel> Add(UserModel user) {
+        UserValidator userValidator = new UserValidator();
+        var result = userValidator.Validate(user);
+        string errors = string.Join("; ", result.Errors.Select(e => e.ErrorMessage));
+
+        if (!result.IsValid) {
+            throw new ArgumentException(errors);
+        }
+
         UserModel findedUser = await _userRepository.FindByCpf(user.Cpf);
         if (findedUser != null) {
             throw new ArgumentException("User already exists");
@@ -24,6 +32,7 @@ public class UserService : IUserService {
         if (findedUser == null) {
             throw new KeyNotFoundException("User not found");
         }
+
         return findedUser;
     }
 
@@ -34,16 +43,20 @@ public class UserService : IUserService {
 
     public async Task<UserModel> Update(string cpf, UserModel userToUpdate) {
         UserModel findedUser = await _userRepository.FindByCpf(cpf);
+        UserValidator userValidator = new UserValidator();
+        var result = userValidator.Validate(userToUpdate);
+        string errors = string.Join("; ", result.Errors.Select(e => e.ErrorMessage));
+
+        if (!result.IsValid) {
+            throw new ArgumentException(errors);
+        }
+
         UserModel updatedUser = await _userRepository.Update(userToUpdate, findedUser);
         return updatedUser;
     }
 
     public async Task<UserModel> Delete(string cpf) {
         UserModel findedUser = await _userRepository.FindByCpf(cpf);
-        if (findedUser == null) {
-            throw new KeyNotFoundException("User not found");
-        }
-
         UserModel deletedUser = await _userRepository.Delete(findedUser);
         return deletedUser;
     }

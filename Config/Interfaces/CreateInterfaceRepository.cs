@@ -5,11 +5,11 @@ public class CreateInterfaceRepository {
         await File.WriteAllTextAsync(path,
         "using Microsoft.AspNetCore.Mvc;\n" +
         $"public interface I{name}Repository" + "{\n" +
-        $"  Task<IActionResult> Add({parameter});\n" +
-        $"  Task<IActionResult> FindById(int id);\n" +
-        $"  Task<IActionResult> FindAll();\n" +
-        $"  Task<IActionResult> Update({parameter}ToUpdate, {parameter}Finded);\n" +
-        $"  Task<IActionResult> Remove({parameter});\n" +
+        $"  Task<{name}Model> Add({parameter});\n" +
+        $"  Task<{name}Model> FindById(int id);\n" +
+        $"  Task<List<{name}Model>> FindAll();\n" +
+        $"  Task<{name}Model> Update({parameter}ToUpdate, {parameter}Finded);\n" +
+        $"  Task<{name}Model> Remove({parameter});\n" +
         "}");
     }
 }

@@ -391,3 +391,15 @@ C:/Users/Douglas/Desktop/projects/SalusApi/obj/Debug/net9.0/ref/api.dll
 /home/douglas/Desktop/projects/BlackBurguer/obj/Debug/net9.0/api.pdb
 /home/douglas/Desktop/projects/BlackBurguer/obj/Debug/net9.0/api.genruntimeconfig.cache
 /home/douglas/Desktop/projects/BlackBurguer/obj/Debug/net9.0/ref/api.dll
+/home/douglas/Desktop/projects/BlackBurguer/bin/Debug/net9.0/FluentValidation.dll
+/home/douglas/Desktop/projects/BlackBurguer/bin/Debug/net9.0/FluentValidation.AspNetCore.dll
+/home/douglas/Desktop/projects/BlackBurguer/bin/Debug/net9.0/FluentValidation.DependencyInjectionExtensions.dll
+/home/douglas/Desktop/projects/BlackBurguer/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/douglas/Desktop/projects/BlackBurguer/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/home/douglas/Desktop/projects/BlackBurguer/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/douglas/Desktop/projects/BlackBurguer/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/home/douglas/Desktop/projects/BlackBurguer/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/home/douglas/Desktop/projects/BlackBurguer/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/douglas/Desktop/projects/BlackBurguer/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/home/douglas/Desktop/projects/BlackBurguer/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+/home/douglas/Desktop/projects/BlackBurguer/obj/Debug/net9.0/api.MvcApplicationPartsAssemblyInfo.cs

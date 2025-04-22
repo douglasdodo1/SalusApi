@@ -1,28 +1,28 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-public class PhoneRepository : IPhoneRepository{
-  private readonly Db _db;
-  public PhoneRepository(Db db){
-   _db = db;
-   }
+public class PhoneRepository : IPhoneRepository {
+    private readonly Db _db;
+    public PhoneRepository(Db db) {
+        _db = db;
+    }
 
-    public Task<IActionResult> Add([FromBody] PhoneModel phone) {
+    public Task<PhoneModel> Add([FromBody] PhoneModel phone) {
         throw new NotImplementedException();
     }
 
-    public Task<IActionResult> FindAll() {
+    public Task<PhoneModel> FindById(int id) {
         throw new NotImplementedException();
     }
 
-    public Task<IActionResult> FindById(int id) {
+    public Task<List<PhoneModel>> FindAll() {
         throw new NotImplementedException();
     }
 
-    public Task<IActionResult> Remove([FromBody] PhoneModel phone) {
+    public Task<PhoneModel> Remove([FromBody] PhoneModel phone) {
         throw new NotImplementedException();
     }
 
-    public Task<IActionResult> Update([FromBody] PhoneModel phoneToUpdate, [FromBody] PhoneModel phoneFinded) {
+    public Task<PhoneModel> Update([FromBody] PhoneModel phoneToUpdate, [FromBody] PhoneModel phoneFinded) {
         throw new NotImplementedException();
     }
 }
