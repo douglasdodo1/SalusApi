@@ -3,10 +3,10 @@ using System.ComponentModel.DataAnnotations;
 public class UserModel {
 
     [Key]
-    public string Cpf { get; set; }
-    public string Name { get; set; }
-    public string Email { get; set; }
-    public string Password { get; set; }
+    public required string Cpf { get; set; }
+    public required string Name { get; set; }
+    public required string Email { get; set; }
+    public required string Password { get; set; }
 
     public ICollection<PhoneModel>? Phones { get; set; } = new List<PhoneModel>();
 
