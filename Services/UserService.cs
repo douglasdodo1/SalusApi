@@ -18,7 +18,7 @@ public class UserService : IUserService {
             throw new ArgumentException(errors);
         }
 
-        UserModel findedUser = await _userRepository.FindByCpf(user.Cpf);
+        UserModel findedUser = await FindByCpf(user.Cpf);
         if (findedUser != null) {
             throw new ArgumentException("User already exists");
         }

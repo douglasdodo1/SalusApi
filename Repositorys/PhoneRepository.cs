@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 public class PhoneRepository : IPhoneRepository {
     private readonly Db _db;
     public PhoneRepository(Db db) {
