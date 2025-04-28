@@ -1,7 +1,9 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 public class PhoneModel {
 
+  [Key]
   public required int Id { get; set; }
   public required string Number { get; set; }
 

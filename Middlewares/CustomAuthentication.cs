@@ -3,7 +3,8 @@ using Microsoft.IdentityModel.Tokens;
 
 public static class CustomAuthentication {
     public static IServiceCollection AddCustomAuthentication(this IServiceCollection services, IConfiguration configuration) {
-        byte[] key = System.Text.Encoding.UTF8.GetBytes(configuration["Jwt:Key"]);
+        byte[] key = System.Text.Encoding.UTF8.GetBytes(configuration["Jwt:Key"]) ?? throw new ArgumentNullException("Jwt:Key");
+        
         services.AddAuthentication(options => {
             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;

@@ -1,27 +1,42 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 public class CustomerRepository : ICustomerRepository {
   private readonly Db _db;
   public CustomerRepository(Db db) {
     _db = db;
   }
 
-  public Task<CustomerModel> Add([FromBody] CustomerModel customer) {
-    throw new NotImplementedException();
+  public async Task<CustomerModel> Add([FromBody] CustomerModel customer) {
+    CustomerModel createdCustomer = (await _db.Customer.AddAsync(customer)).Entity;
+    await _db.SaveChangesAsync();
+    return createdCustomer;
   }
 
-  public Task<List<CustomerModel>> FindAll() {
-    throw new NotImplementedException();
+  public async Task<CustomerModel> FindById(int id) {
+    CustomerModel? customer = await _db.Customer.FindAsync(id);
+    return customer;
   }
 
-  public Task<CustomerModel> FindById(int id) {
-    throw new NotImplementedException();
+  public async Task<List<CustomerModel>> FindAll() {
+    List<CustomerModel> customerList = await _db.Customer.ToListAsync();
+    return customerList;
   }
 
-  public Task<CustomerModel> Remove([FromBody] CustomerModel customer) {
-    throw new NotImplementedException();
+  public async Task<CustomerModel> Update([FromBody] CustomerModel customerToUpdate, [FromBody] CustomerModel customerFinded) {
+    customerFinded.Name = customerToUpdate.Name;
+    customerFinded.Email = customerToUpdate.Email;
+    customerFinded.Password = customerToUpdate.Password;
+    customerFinded.Cpf = customerToUpdate.Cpf;
+
+
+    await _db.SaveChangesAsync();
+    return customerFinded;
   }
 
-  public Task<CustomerModel> Update([FromBody] CustomerModel customerToUpdate, [FromBody] CustomerModel customerFinded) {
-    throw new NotImplementedException();
+  public async Task<CustomerModel> Remove([FromBody] CustomerModel customer) {
+    CustomerModel customerDeleted = _db.Customer.Remove(customer).Entity;
+    await _db.SaveChangesAsync();
+    return customerDeleted;
   }
+
 }
