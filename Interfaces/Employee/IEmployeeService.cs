@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 public interface IEmployeeService{
   Task<EmployeeModel> Add([FromBody] EmployeeModel employee);
-  Task<EmployeeModel> FindById(int id);
+  Task<EmployeeModel> FindById(string cpf);
   Task<List<EmployeeModel>> FindAll();
-  Task<EmployeeModel> Update(int id, [FromBody] EmployeeModel employee);
-  Task<EmployeeModel> Remove(int id);
+  Task<EmployeeModel> Update(string cpf, [FromBody] EmployeeModel employee);
+  Task<EmployeeModel> Remove(string cpf);
 }

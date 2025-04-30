@@ -1,8 +1,9 @@
 using FluentValidation;
 public class PhoneValidator : AbstractValidator<PhoneModel> {
-    public PhoneValidator() {
+    public PhoneValidator(bool isUpdate = false) {
         RuleFor(x => x.Number)
-            .NotEmpty()
+            .Cascade(CascadeMode.Stop)
+            .NotEmpty().When(x => !isUpdate)
             .WithMessage("Number cannot be empty")
             .Length(10, 15)
             .WithMessage("Number must be between 10 and 15 characters long")

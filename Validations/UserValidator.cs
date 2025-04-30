@@ -2,9 +2,10 @@ using FluentValidation;
 using FluentValidation.Validators;
 
 public class UserValidator : AbstractValidator<UserModel> {
-    public UserValidator() {
+    public UserValidator(bool isUpdate = false) {
         RuleFor(x => x.Cpf)
-            .NotEmpty()
+            .Cascade(CascadeMode.Stop)
+            .NotEmpty().When(x => !isUpdate)
             .WithMessage("Cpf cannot be empty")
             .Length(11)
             .WithMessage("Cpf must be 11 characters long")
@@ -16,7 +17,8 @@ public class UserValidator : AbstractValidator<UserModel> {
                 }
             });
         RuleFor(x => x.Name)
-            .NotEmpty()
+            .Cascade(CascadeMode.Stop)
+            .NotEmpty().When(x => !isUpdate)
             .WithMessage("Name cannot be empty")
             .Length(3, 50)
             .WithMessage("Name must be between 3 and 50 characters long")
@@ -24,12 +26,15 @@ public class UserValidator : AbstractValidator<UserModel> {
             .WithMessage("Name must contain only letters and spaces");
 
         RuleFor(x => x.Email)
-            .NotEmpty()
+            .Cascade(CascadeMode.Stop)
+            .NotEmpty().When(x => !isUpdate)
             .WithMessage("Email cannot be empty")
             .EmailAddress(EmailValidationMode.AspNetCoreCompatible)
             .WithMessage("Email is not valid");
+
         RuleFor(x => x.Password)
-            .NotEmpty()
+            .Cascade(CascadeMode.Stop)
+            .NotEmpty().When(x => !isUpdate)
             .WithMessage("Password cannot be empty")
             .Length(6, 20)
             .WithMessage("Password must be between 6 and 20 characters long")

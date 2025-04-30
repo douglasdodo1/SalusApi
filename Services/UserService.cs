@@ -52,6 +52,7 @@ public class UserService : IUserService {
         }
 
         UserModel updatedUser = await _userRepository.Update(userToUpdate, findedUser);
+
         return updatedUser;
     }
 
