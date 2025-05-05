@@ -13,7 +13,7 @@ public class CustomerRepository : ICustomerRepository {
   }
 
   public async Task<CustomerModel> FindByCpf(string cpf) {
-    CustomerModel? customer = await _db.Customer.FindAsync(cpf) ?? throw new Exception("Customer not found");
+    CustomerModel customer = await _db.Customer.FindAsync(cpf) ?? throw new Exception("Customer not found");
     return customer;
   }
 

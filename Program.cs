@@ -41,6 +41,8 @@ builder.Services.AddScoped<EmployeeValidator>();
 
 
 
+
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

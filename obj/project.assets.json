@@ -3232,19 +3232,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Douglas\\.nuget\\packages\\": {}
+    "/home/douglas/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Douglas\\Desktop\\projects\\BlackBurguer\\api.csproj",
+      "projectUniqueName": "/home/douglas/Desktop/projects/BlackBurguer/api.csproj",
       "projectName": "api",
-      "projectPath": "C:\\Users\\Douglas\\Desktop\\projects\\BlackBurguer\\api.csproj",
-      "packagesPath": "C:\\Users\\Douglas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Douglas\\Desktop\\projects\\BlackBurguer\\obj\\",
+      "projectPath": "/home/douglas/Desktop/projects/BlackBurguer/api.csproj",
+      "packagesPath": "/home/douglas/.nuget/packages/",
+      "outputPath": "/home/douglas/Desktop/projects/BlackBurguer/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Douglas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/douglas/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -3316,7 +3316,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/home/douglas/.dotnet/sdk/9.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
