@@ -14,14 +14,14 @@ public class CustomerService : ICustomerService {
       throw new ArgumentException(erros);
     }
 
-    CustomerModel findedCustomer = await FindById(customer.Id);
+    CustomerModel findedCustomer = await FindByCpf(customer.Cpf);
 
     CustomerModel createdCustomer = await _customerRepository.Add(customer);
     return createdCustomer;
   }
 
-  public async Task<CustomerModel> FindById(int id) {
-    CustomerModel findedCustomer = await _customerRepository.FindById(id);
+  public async Task<CustomerModel> FindByCpf(string cpf) {
+    CustomerModel findedCustomer = await _customerRepository.FindByCpf(cpf);
     if (findedCustomer == null) {
       throw new KeyNotFoundException("Customer not found");
     }
@@ -33,17 +33,17 @@ public class CustomerService : ICustomerService {
     return customerList;
   }
 
-  public async Task<CustomerModel> Update(int id, [FromBody] CustomerModel customer) {
+  public async Task<CustomerModel> Update(string cpf, [FromBody] CustomerModel customer) {
 
 
-    CustomerModel findedCustomer = await FindById(id);
+    CustomerModel findedCustomer = await FindByCpf(cpf);
     CustomerModel updatedCustomer = await _customerRepository.Update(customer, findedCustomer);
     return updatedCustomer;
 
   }
 
-  public async Task<CustomerModel> Remove(int id) {
-    CustomerModel findedCustomer = await FindById(id);
+  public async Task<CustomerModel> Remove(string cpf) {
+    CustomerModel findedCustomer = await FindByCpf(cpf);
     CustomerModel deletedCustomer = await _customerRepository.Remove(findedCustomer);
     return deletedCustomer;
   }

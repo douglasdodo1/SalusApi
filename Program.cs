@@ -12,7 +12,7 @@ if (args.Length > 0 && args[0].Equals("createFolder", StringComparison.OrdinalIg
 }
 else if (args.Length > 0 && args[0].Equals("create", StringComparison.OrdinalIgnoreCase)) {
     if (args.Length > 1) {
-        ConfigArquives.create(args[1]);
+        await ConfigArquives.create(args[1]);
         return;
     }
     else {
@@ -30,6 +30,16 @@ builder.Services.AddDbContext<Db>(options => {
 
 
 builder.Services.AddCustomAuthentication(builder.Configuration);
+
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<UserValidator>();
+
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<EmployeeValidator>();
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

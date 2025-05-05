@@ -12,8 +12,8 @@ public class CustomerRepository : ICustomerRepository {
     return createdCustomer;
   }
 
-  public async Task<CustomerModel> FindById(int id) {
-    CustomerModel? customer = await _db.Customer.FindAsync(id);
+  public async Task<CustomerModel> FindByCpf(string cpf) {
+    CustomerModel? customer = await _db.Customer.FindAsync(cpf) ?? throw new Exception("Customer not found");
     return customer;
   }
 

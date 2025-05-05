@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 
 public class EmployeeService : IEmployeeService {
-    private readonly EmployeeRepository _employeeRepository;
-    public EmployeeService(EmployeeRepository employeeRepository) {
+    private readonly IEmployeeRepository _employeeRepository;
+    public EmployeeService(IEmployeeRepository employeeRepository) {
         _employeeRepository = employeeRepository;
     }
 
@@ -23,7 +23,7 @@ public class EmployeeService : IEmployeeService {
             throw new ArgumentException(errors);
         }
 
-        EmployeeModel findedEmployee = await FindById(employee.Cpf);
+        EmployeeModel findedEmployee = await _employeeRepository.FindByCpf(employee.Cpf);
         if (findedEmployee != null) {
             throw new ArgumentException("Employee already exists");
         }
@@ -32,8 +32,8 @@ public class EmployeeService : IEmployeeService {
         return createdEmployee;
     }
 
-    public async Task<EmployeeModel> FindById(string cpf) {
-        EmployeeModel findedEmployee = await _employeeRepository.FindById(cpf);
+    public async Task<EmployeeModel> FindByCpf(string cpf) {
+        EmployeeModel findedEmployee = await _employeeRepository.FindByCpf(cpf);
         if (findedEmployee == null) {
             throw new KeyNotFoundException("Employee not found");
         }
@@ -46,7 +46,7 @@ public class EmployeeService : IEmployeeService {
     }
 
     public async Task<EmployeeModel> Update(string cpf, [FromBody] EmployeeModel employee) {
-        var userValidator = new UserValidator();
+        var userValidator = new UserValidator(true);
         var userValitadorResult = userValidator.Validate(employee);
         string errors = string.Join("; ", userValitadorResult.Errors.Select(e => e.ErrorMessage));
 
@@ -62,9 +62,9 @@ public class EmployeeService : IEmployeeService {
             throw new ArgumentException(errors);
         }
 
-        EmployeeModel findedEmployee = await FindById(cpf);
+        EmployeeModel findedEmployee = await FindByCpf(cpf);
         EmployeeModel updatedEmployee = await _employeeRepository.Update(employee, findedEmployee);
-        
+
         if (updatedEmployee == null) {
             throw new KeyNotFoundException("Employee not found");
         }

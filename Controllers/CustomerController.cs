@@ -14,11 +14,11 @@ public class CustomerController : ICustomerController {
     }
 
     CustomerModel createdCustomer = await _customerService.Add(customer);
-    return new CreatedResult($"/Customer/{createdCustomer.Id}", createdCustomer);
+    return new CreatedResult($"/Customer/{createdCustomer.Cpf}", createdCustomer);
   }
 
-  public async Task<IActionResult> FindById(int id) {
-    CustomerModel customer = await _customerService.FindById(id);
+  public async Task<IActionResult> FindByCpf(string cpf) {
+    CustomerModel customer = await _customerService.FindByCpf(cpf);
     return new OkObjectResult(customer);
   }
 
@@ -27,17 +27,17 @@ public class CustomerController : ICustomerController {
     return new CreatedResult("/Customer", customerList);
   }
 
-  public async Task<IActionResult> Update(int id, [FromBody] CustomerModel customer) {
+  public async Task<IActionResult> Update(string cpf, [FromBody] CustomerModel customer) {
     if (customer == null) {
       return new BadRequestObjectResult("Customer cannot be null");
     }
 
-    CustomerModel updatedCustomer = await _customerService.Update(id, customer);
+    CustomerModel updatedCustomer = await _customerService.Update(cpf, customer);
     return new OkObjectResult(updatedCustomer);
   }
 
-  public async Task<IActionResult> Remove(int id) {
-    CustomerModel deletedCustomer = await _customerService.Remove(id);
+  public async Task<IActionResult> Remove(string cpf) {
+    CustomerModel deletedCustomer = await _customerService.Remove(cpf);
     return new OkObjectResult(deletedCustomer);
   }
 }

@@ -7,7 +7,7 @@ public class UserController : IUserController {
 
     private readonly IUserService _userService;
 
-    public UserController(UserService userService) {
+    public UserController(IUserService userService) {
         _userService = userService;
     }
 

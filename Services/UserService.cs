@@ -43,7 +43,7 @@ public class UserService : IUserService {
 
     public async Task<UserModel> Update(string cpf, UserModel userToUpdate) {
         UserModel findedUser = await _userRepository.FindByCpf(cpf);
-        UserValidator userValidator = new UserValidator();
+        UserValidator userValidator = new UserValidator(true);
         var result = userValidator.Validate(userToUpdate);
         string errors = string.Join("; ", result.Errors.Select(e => e.ErrorMessage));
 

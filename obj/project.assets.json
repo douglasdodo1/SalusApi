@@ -3237,11 +3237,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Douglas\\Desktop\\projects\\SalusApi\\api.csproj",
+      "projectUniqueName": "C:\\Users\\Douglas\\Desktop\\projects\\BlackBurguer\\api.csproj",
       "projectName": "api",
-      "projectPath": "C:\\Users\\Douglas\\Desktop\\projects\\SalusApi\\api.csproj",
+      "projectPath": "C:\\Users\\Douglas\\Desktop\\projects\\BlackBurguer\\api.csproj",
       "packagesPath": "C:\\Users\\Douglas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Douglas\\Desktop\\projects\\SalusApi\\obj\\",
+      "outputPath": "C:\\Users\\Douglas\\Desktop\\projects\\BlackBurguer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Douglas\\AppData\\Roaming\\NuGet\\NuGet.Config"

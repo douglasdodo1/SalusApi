@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
-[Controller]
+[ApiController]
 [Route("Employee")]
 public class EmployeeController : IEmployeeController {
-  private readonly EmployeeService _employeeService;
-  public EmployeeController(EmployeeService employeeService) {
+  private readonly IEmployeeService _employeeService;
+  public EmployeeController(IEmployeeService employeeService) {
     _employeeService = employeeService;
   }
 
@@ -20,8 +20,8 @@ public class EmployeeController : IEmployeeController {
   }
 
   [HttpGet("{cpf}")]
-  public async Task<IActionResult> FindById(string cpf) {
-    EmployeeModel employee = await _employeeService.FindById(cpf);
+  public async Task<IActionResult> FindByCpf(string cpf) {
+    EmployeeModel employee = await _employeeService.FindByCpf(cpf);
     return new OkObjectResult(employee);
   }
 
@@ -33,9 +33,12 @@ public class EmployeeController : IEmployeeController {
 
   [HttpPut("{cpf}")]
   public async Task<IActionResult> Update(string cpf, [FromBody] EmployeeModel employee) {
-    if (employee == null) {
-      throw new ArgumentNullException(nameof(employee), "Employee cannot be null");
-    }
+    Console.WriteLine($"Update: {cpf}");
+    Console.WriteLine($"Position: {employee.Position}");
+    Console.WriteLine($"Shift:    {employee.Shift}");
+    Console.WriteLine($"Name:     {employee.Name ?? "(null)"}");
+
+
 
     EmployeeModel updatedEmployee = await _employeeService.Update(cpf, employee);
     return new OkObjectResult(updatedEmployee);

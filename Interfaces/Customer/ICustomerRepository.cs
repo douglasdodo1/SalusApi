@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-public interface ICustomerRepository{
+public interface ICustomerRepository {
   Task<CustomerModel> Add([FromBody] CustomerModel customer);
-  Task<CustomerModel> FindById(int id);
+  Task<CustomerModel> FindByCpf(string cpf);
   Task<List<CustomerModel>> FindAll();
   Task<CustomerModel> Update([FromBody] CustomerModel customerToUpdate, [FromBody] CustomerModel customerFinded);
   Task<CustomerModel> Remove([FromBody] CustomerModel customer);
