@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-public interface IPhoneRepository{
-  Task<IActionResult> Add([FromBody] PhoneModel phone);
-  Task<IActionResult> FindById(int id);
-  Task<IActionResult> FindAll();
-  Task<IActionResult> Update([FromBody] PhoneModel phoneToUpdate, [FromBody] PhoneModel phoneFinded);
-  Task<IActionResult> Remove([FromBody] PhoneModel phone);
+public interface IPhoneRepository {
+  Task<PhoneModel> Add([FromBody] PhoneModel phone);
+  Task<PhoneModel> FindById(int id);
+  Task<List<PhoneModel>> FindAll();
+  Task<PhoneModel> Update([FromBody] PhoneModel phoneToUpdate, [FromBody] PhoneModel phoneFinded);
+  Task<PhoneModel> Remove([FromBody] PhoneModel phone);
 }

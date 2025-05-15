@@ -15,7 +15,7 @@ public class UserRepository : IUserRepository {
     }
 
     public async Task<UserModel> FindByCpf(string cpf) {
-        UserModel user = await _db.User.FindAsync(cpf);
+        UserModel user = await _db.User.FindAsync(cpf) ?? throw new Exception("User not found");
         return user;
     }
 

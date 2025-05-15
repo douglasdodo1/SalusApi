@@ -1,10 +1,21 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+
 public class PhoneModel {
 
-  public int? Id { get; set; }
-  public string? Number { get; set; }
+  [Key]
+  public int Id { get; set; }
+  public required string Number { get; set; }
+
+  [ForeignKey("User")]
   public string? Cpf { get; set; }
-  public PhoneModel(string? number, string? cpf) {
+
+  public UserModel? User { get; set; }
+
+  public PhoneModel(string number, string cpf) {
     Number = number;
     Cpf = cpf;
   }
+
 }

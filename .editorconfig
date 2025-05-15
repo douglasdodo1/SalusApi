@@ -5,3 +5,6 @@ csharp_new_line_before_open_brace_methods = false
 csharp_new_line_before_open_brace_control_blocks = false
 csharp_new_line_before_open_brace_accessors = false
 csharp_new_line_before_open_brace_types = false
+
+# CS8604: Possível argumento de referência nula.
+dotnet_diagnostic.CS8604.severity = none

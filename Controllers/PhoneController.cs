@@ -31,9 +31,6 @@ public class PhoneController : IPhoneController {
   }
 
   public async Task<IActionResult> Update(int id, [FromBody] PhoneModel phone) {
-    if (id <= 0) {
-      throw new ArgumentNullException(nameof(id), "Id invalid");
-    }
     if (phone == null) {
       throw new ArgumentNullException(nameof(phone), "Phone cannot be null");
     }
