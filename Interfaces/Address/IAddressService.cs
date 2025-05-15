@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-public interface CepViaService {
+public interface IAddressService {
   Task<AddressModel> Add([FromBody] AddressModel address);
   Task<AddressModel> FindByCep(string cep);
   Task<List<AddressModel>> FindAll();

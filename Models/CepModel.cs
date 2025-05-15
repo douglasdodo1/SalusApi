@@ -1,4 +1,4 @@
-public class ViaCepModel {
+public class CepModel {
     public string? Cep { get; set; }
     public string? Logradouro { get; set; }
     public string? Complemento { get; set; }
@@ -9,4 +9,5 @@ public class ViaCepModel {
     public string? Gia { get; set; }
     public string? Ddd { get; set; }
     public string? Siafi { get; set; }
+    public bool Erro { get; set; }
 }
