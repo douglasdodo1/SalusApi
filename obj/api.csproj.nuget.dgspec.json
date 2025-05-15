@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Douglas\\Desktop\\projects\\SalusApi\\api.csproj": {}
+    "C:\\Users\\Douglas\\Desktop\\projects\\BlackBurguer\\api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Douglas\\Desktop\\projects\\SalusApi\\api.csproj": {
+    "C:\\Users\\Douglas\\Desktop\\projects\\BlackBurguer\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Douglas\\Desktop\\projects\\SalusApi\\api.csproj",
+        "projectUniqueName": "C:\\Users\\Douglas\\Desktop\\projects\\BlackBurguer\\api.csproj",
         "projectName": "api",
-        "projectPath": "C:\\Users\\Douglas\\Desktop\\projects\\SalusApi\\api.csproj",
+        "projectPath": "C:\\Users\\Douglas\\Desktop\\projects\\BlackBurguer\\api.csproj",
         "packagesPath": "C:\\Users\\Douglas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Douglas\\Desktop\\projects\\SalusApi\\obj\\",
+        "outputPath": "C:\\Users\\Douglas\\Desktop\\projects\\BlackBurguer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Douglas\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,6 +43,22 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

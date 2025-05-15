@@ -3,7 +3,7 @@ public class CreateService {
         string parameter = $"{name.ToLower()}";
         string upName = name.ToUpper()[0] + name.Substring(1);
 
-        File.WriteAllTextAsync(path,
+        await File.WriteAllTextAsync(path,
         $"public class {upName}Service : I{upName}Service" + "{\n" +
         $"  private readonly {upName}Repository _{parameter}Repository;\n" +
 

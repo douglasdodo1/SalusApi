@@ -1,8 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
-public interface IUserService{
-  Task<UserModel> Add([FromBody] UserModel user);
-  Task<UserModel> FindByid(int id);
-  Task<List<UserModel>> FindAll();
-  Task<UserModel> Update(int id, [FromBody] UserModel user);
-  Task<UserModel> Remove(int id);
+public interface IUserService {
+    Task<UserModel> Add(UserModel user);
+    Task<UserModel> FindByCpf(string cpf);
+    Task<List<UserModel>> FindAll();
+    Task<UserModel> Update(string cpf, UserModel user);
+    Task<UserModel> Delete(string cpf);
 }

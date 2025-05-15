@@ -3,7 +3,7 @@ public class CreateRepository {
         string parameter = $"{name.ToLower()}";
         string upName = name.ToUpper()[0] + name.Substring(1);
 
-        File.WriteAllTextAsync(path,
+        await File.WriteAllTextAsync(path,
         "using Microsoft.EntityFrameworkCore;\n" +
 
         $"public class {upName}Repository : I{upName}Repository" + "{\n" +

@@ -1,8 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
-public interface IUserRepository{
-  Task<IActionResult> Add([FromBody] UserModel user);
-  Task<IActionResult> FindById(int id);
-  Task<IActionResult> FindAll();
-  Task<IActionResult> Update([FromBody] UserModel userToUpdate, [FromBody] UserModel userFinded);
-  Task<IActionResult> Remove([FromBody] UserModel user);
+public interface IUserRepository {
+
+    
+    Task<UserModel> Add(UserModel user);
+    Task<UserModel> FindByCpf(string cpf);
+    Task<List<UserModel>> FindAll();
+    Task<UserModel> Update(UserModel userToUpdate, UserModel userFinded);
+    Task<UserModel> Delete(UserModel user);
 }

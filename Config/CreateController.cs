@@ -3,7 +3,7 @@ public class CreateController {
         string parameter = $"{name.ToLower()}";
         string upName = name.ToUpper()[0] + name.Substring(1);
 
-        File.WriteAllTextAsync(path,
+        await File.WriteAllTextAsync(path,
         "using Microsoft.AspNetCore.Mvc;\n" +
 
         "\n[Controller]\n" +

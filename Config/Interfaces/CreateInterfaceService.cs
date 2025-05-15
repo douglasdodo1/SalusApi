@@ -6,7 +6,7 @@ public class CreateInterfaceService {
         "using Microsoft.AspNetCore.Mvc;\n" +
         $"public interface I{name}Service" + "{\n" +
         $"  Task<{name}Model> Add({parameter});\n" +
-        $"  Task<{name}Model> FindByid(int id);\n" +
+        $"  Task<{name}Model> FindById(int id);\n" +
         $"  Task<List<{name}Model>> FindAll();\n" +
         $"  Task<{name}Model> Update(int id, {parameter});\n" +
         $"  Task<{name}Model> Remove(int id);\n" +
